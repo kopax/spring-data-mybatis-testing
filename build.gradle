@@ -39,12 +39,14 @@ targetCompatibility = 1.8
 
 dependencies {
     // Import local jars
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
 //    compile("com.ifrabbit:spring-data-mybatis:1.0.7.RELEASE")
+        compile("com.ifrabbit:spring-boot-starter-data-mybatis:1.0.8.BUILD-SNAPSHOT")
+
     compile("org.apache.commons:commons-lang3:3.4")
     compile("org.apache.directory.server:apacheds-server-jndi:1.5.5")
     compile("com.h2database:h2:1.4.193")
-    compile("com.ifrabbit:spring-boot-starter-data-mybatis:1.0.8.BUILD-SNAPSHOT")
+
 //    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0")
 //    compile("org.mybatis:mybatis:3.4.2")
 //    compile("org.mybatis:mybatis-spring:1.3.1")

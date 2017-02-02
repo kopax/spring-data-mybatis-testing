@@ -42,24 +42,30 @@ public class DatabaseLoader implements CommandLineRunner {
 			reservationRepository.save(new Reservation("Jack"));
 			reservationRepository.save(new Reservation("Apple"));
 
-//			siteServiceRepository.save(new SiteService("User service"));
-//			siteServiceRepository.save(new SiteService("Reservation service"));
 
 			SiteService userManagementService = new SiteService();
-			userManagementService.setName("User management");
+			userManagementService.setName("User service");
 			this.siteServiceRepository.save(userManagementService);
 
 			SiteFunction userManagerFunction = new SiteFunction();
 			userManagerFunction.setName("User management");
 			userManagerFunction.setSiteService(userManagementService);
+			this.siteFunctionRepository.save(userManagerFunction);
 
 			SiteContent viewManagerContent = new SiteContent();
 			viewManagerContent.setName("view");
 			viewManagerContent.setSiteFunction(userManagerFunction);
-
-			this.siteServiceRepository.save(userManagementService);
-			this.siteFunctionRepository.save(userManagerFunction);
 			this.siteContentRepository.save(viewManagerContent);
+
+			SiteContent editManagerContent = new SiteContent();
+			editManagerContent.setName("edit");
+			editManagerContent.setSiteFunction(userManagerFunction);
+			this.siteContentRepository.save(editManagerContent);
+
+			SiteContent deleteManagerContent = new SiteContent();
+			deleteManagerContent.setName("delete");
+			deleteManagerContent.setSiteFunction(userManagerFunction);
+			this.siteContentRepository.save(deleteManagerContent);
 
 		} catch(Exception e) {
 			logger.error("Can't load database data because of " + e.getMessage());

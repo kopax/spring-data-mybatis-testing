@@ -5,7 +5,6 @@
     <select id="getAll" resultType="org.springframework.data.mybatis.samples.security.SiteService" lang="XML">
         select
         "siteService"."ID" as "id",
-        "siteService"."I18N_ID" as "messageId",
         "siteService"."NAME" as "name" from "SITE_SERVICE" "siteService"
         <if test="_condition != null">
             <trim prefix=" where " prefixOverrides="and |or "></trim>

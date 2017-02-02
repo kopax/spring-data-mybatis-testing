@@ -18,16 +18,51 @@
 
 package org.springframework.data.mybatis.samples;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mybatis.samples.security.SiteFunctionRepository;
+import org.springframework.data.mybatis.samples.security.SiteServiceRepository;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @SpringBootApplication
+@Controller
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
+
+
+    @Autowired
+    private SiteServiceRepository siteServiceRepository;
+
+    @Autowired
+    private SiteFunctionRepository siteFunctionRepository;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/test/2", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<?> findBySiteServiceIdDirect() {
+        return ResponseEntity.ok(siteServiceRepository.findOne(1L));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/test/3", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<?> findBySiteServiceId() {
+        return ResponseEntity.ok(siteFunctionRepository.findBySiteServiceId(1L));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/test/4", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<?> getAll() {
+        return ResponseEntity.ok(siteServiceRepository.getAll());
+    }
 }
 
 

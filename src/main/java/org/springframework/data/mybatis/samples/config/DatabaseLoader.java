@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.mybatis.samples.reservation.Reservation;
 import org.springframework.data.mybatis.samples.reservation.ReservationRepository;
 import org.springframework.data.mybatis.samples.security.*;

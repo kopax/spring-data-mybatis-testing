@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.domain.security.SiteService">
+<mapper namespace="org.springframework.data.mybatis.samples.security.SiteService">
+
     <select id="getAll" resultType="org.springframework.data.mybatis.samples.security.SiteService" lang="XML">
         select
         "siteService"."ID" as "id",

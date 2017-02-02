@@ -7,25 +7,19 @@ package org.springframework.data.mybatis.samples.security;
 import org.springframework.data.mybatis.annotations.*;
 
 import javax.validation.constraints.NotNull;
-
 import java.util.List;
-
-import static org.apache.ibatis.type.JdbcType.BIGINT;
 
 
 @Entity(table = "SITE_FUNCTION")
 public class SiteFunction extends SiteAccess {
 
-	@JdbcType(BIGINT)
-	@OneToOne
+ 	@OneToOne
 	@JoinColumn(name = "SITE_SERVICE_ID")
 	@NotNull
 	private SiteService siteService;
 
-	@JdbcType(BIGINT)
-	@OneToMany
-	@JoinTable(name = "SITE_CONTENT")
-	@JoinColumn(name = "SITE_CONTENT_ID")
+ 	@OneToMany
+	@JoinColumn(name = "SITE_FUNCTION_ID",referencedColumnName = "ID")
 	@NotNull
 	private List<SiteContent> siteContentList;
 

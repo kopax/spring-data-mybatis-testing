@@ -7,7 +7,7 @@ import org.springframework.data.mybatis.domains.LongId;
  * Created by dka on 2/2/17.
  */
 @Entity
-class Reservation extends LongId {
+public class Reservation extends LongId {
 
 	private String reservationName;
 

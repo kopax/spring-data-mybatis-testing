@@ -15,7 +15,4 @@ public interface SiteServiceRepository extends CrudRepository<SiteService, Long>
 
 	List<SiteService> findAll();
 
-	List<SiteService> getAll();
-
-
 }

@@ -4,6 +4,28 @@ Sample repo for bugs demos
  
     git clone git@github.com:kopax/spring-data-mybatis-testing.git
     
+## Projection type must be an interface 
+
+__Mybatis commit version : 3b6fba0__ 
+
+PR https://github.com/hatunet/spring-data-mybatis/pull/98
+
+    git checkout onetomany
+    ./gradlew build --info && java -jar build/libs/spring-data-mybatis-testing-0.1.0.war
+    
+### Test
+
+    curl http://localhost:8080/siteServices
+    
+### Expected
+
+HTTP 200
+    
+### Result
+
+    Thu Feb 02 19:14:48 ICT 2017
+    There was an unexpected error (type=Internal Server Error, status=500).
+    ### Error querying database. Cause: org.h2.jdbc.JdbcSQLException: Column "SITE_FUNCTION.SITE_FUNCTION_ID" not found; SQL statement: select "siteService".id as "id","siteService".NAME as "name","siteService.siteFunctionList".id as "siteFunctionList.id","siteService.siteFunctionList".NAME as "siteFunctionList.name","siteService.siteFunctionList".SITE_SERVICE_ID as "siteFunctionList.siteService.id" from SITE_SERVICE "siteService" left outer join SITE_FUNCTION on SITE_FUNCTION.SITE_SERVICE_id="siteService".id left outer join SITE_FUNCTION "siteService.siteFunctionList" on SITE_FUNCTION.SITE_FUNCTION_id="siteService.siteFunctionList".id [42122-193] ### The error may exist in org.springframework.data.mybatis.samples.security.SiteService_auto_generate.xml ### The error may involve org.springframework.data.mybatis.samples.security.SiteService._findAll ### The error occurred while executing a query ### SQL: select "siteService".id as "id","siteService".NAME as "name","siteService.siteFunctionList".id as "siteFunctionList.id","siteService.siteFunctionList".NAME as "siteFunctionList.name","siteService.siteFunctionList".SITE_SERVICE_ID as "siteFunctionList.siteService.id" from SITE_SERVICE "siteService" left outer join SITE_FUNCTION on SITE_FUNCTION.SITE_SERVICE_id="siteService".id left outer join SITE_FUNCTION "siteService.siteFunctionList" on SITE_FUNCTION.SITE_FUNCTION_id="siteService.siteFunctionList".id ### Cause: org.h2.jdbc.JdbcSQLException: Column "SITE_FUNCTION.SITE_FUNCTION_ID" not found; SQL statement: select "siteService".id as "id","siteService".NAME as "name","siteService.siteFunctionList".id as "siteFunctionList.id","siteService.siteFunctionList".NAME as "siteFunctionList.name","siteService.siteFunctionList".SITE_SERVICE_ID as "siteFunctionList.siteService.id" from SITE_SERVICE "siteService" left outer join SITE_FUNCTION on SITE_FUNCTION.SITE_SERVICE_id="siteService".id left outer join SITE_FUNCTION "siteService.siteFunctionList" on SITE_FUNCTION.SITE_FUNCTION_id="siteService.siteFunctionList".id [42122-193] ; bad SQL grammar []; nested exception is org.h2.jdbc.JdbcSQLException: Column "SITE_FUNCTION.SITE_FUNCTION_ID" not found; SQL statement: select "siteService".id as "id","siteService".NAME as "name","siteService.siteFunctionList".id as "siteFunctionList.id","siteService.siteFunctionList".NAME as "siteFunctionList.name","siteService.siteFunctionList".SITE_SERVICE_ID as "siteFunctionList.siteService.id" from SITE_SERVICE "siteService" left outer join SITE_FUNCTION on SITE_FUNCTION.SITE_SERVICE_id="siteService".id left outer join SITE_FUNCTION "siteService.siteFunctionList" on SITE_FUNCTION.SITE_FUNCTION_id="siteService.siteFunctionList".id [42122-193]
     
 ## How to extend xml with custom mappers
 

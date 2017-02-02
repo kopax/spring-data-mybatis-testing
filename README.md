@@ -4,7 +4,7 @@ Sample repo for bugs demos
  
     git clone git@github.com:kopax/spring-data-mybatis-testing.git
     
-## Projection type must be an interface 
+## @OneToMany doesn't select join column because of missing join statement
 
 __Mybatis commit version : 3b6fba0__ 
 

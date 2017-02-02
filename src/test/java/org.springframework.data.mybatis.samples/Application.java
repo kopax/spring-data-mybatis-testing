@@ -25,7 +25,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringDataMybatisSamplesApplicationTests {
+public class Application {
 
 	@Test
 	public void contextLoads() {

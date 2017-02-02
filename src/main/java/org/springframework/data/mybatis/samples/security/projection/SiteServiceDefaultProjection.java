@@ -16,6 +16,8 @@ import java.util.List;
 @Projection(name = "siteServiceDefault", types = { SiteService.class })
 public interface SiteServiceDefaultProjection {
 
+	String getTranslateMessage();
+
 	String getName();
 
 	List<SiteFunction> getSiteFunctionList();

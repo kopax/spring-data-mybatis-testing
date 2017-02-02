@@ -6,7 +6,7 @@ Sample repo for bugs demos
     
 ## @OneToMany doesn't select join column because of missing join statement
 
-__Mybatis commit version : 3b6fba0__ 
+__spring-data-mybatis : 3b6fba0__ 
 
 PR https://github.com/hatunet/spring-data-mybatis/pull/98
 
@@ -29,7 +29,7 @@ HTTP 200
     
 ## How to extend xml with custom mappers
 
-__Mybatis commit version : f22774e__ (approx 1.0.8.SNAPSHOT, after this commit spring-data-mybatis is corrupt)
+__spring-data-mybatis : f22774e__ (approx 1.0.8.SNAPSHOT, after this commit spring-data-mybatis is corrupt)
 
 Ticket https://github.com/hatunet/spring-data-mybatis/issues/88
 
@@ -185,7 +185,7 @@ Ticket https://github.com/hatunet/spring-data-mybatis/issues/87
     
 ## Projection type must be an interface 
 
-__Mybatis commit version : f22774e__ (approx 1.0.8.SNAPSHOT, after this commit spring-data-mybatis is corrupt)
+__spring-data-mybatis : f22774e__ (approx 1.0.8.SNAPSHOT, after this commit spring-data-mybatis is corrupt)
 
 Ticket https://github.com/hatunet/spring-data-mybatis/issues/85
 

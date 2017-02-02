@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domain.security.SiteService">
+    <select id="getAll" resultType="org.springframework.data.mybatis.samples.security.SiteService" lang="XML">
+        select
+        "siteService"."ID" as "id",
+        "siteService"."I18N_ID" as "messageId",
+        "siteService"."NAME" as "name" from "SITE_SERVICE" "siteService"
+        <if test="_condition != null">
+            <trim prefix=" where " prefixOverrides="and |or "></trim>
+        </if>
+        <if test="_ids != null">where "siteService"."ID" in
+            <foreach item="item" index="index" collection="_ids" open="(" separator="," close=")">#{item}</foreach>
+        </if>
+        <if test="_sorts != null">
+            <bind name="_columnsMap"
+                  value='#{"id":"\"siteService\".\"ID\"","messageId":"\"siteService\".\"I18N_ID\"","name":"\"siteService\".\"NAME\""}'/>
+            order by
+            <foreach item="item" index="idx" collection="_sorts" open="" separator="," close=""><if
+                    test="item.ignoreCase">lower(</if>${_columnsMap[item.property]}
+                <if test="item.ignoreCase">)</if>
+                ${item.direction}
+            </foreach>
+        </if>
+    </select>
+</mapper>

@@ -20,8 +20,15 @@ package org.springframework.data.mybatis.samples;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mybatis.repository.config.EnableMybatisRepositories;
 
 @SpringBootApplication
+@ComponentScan("org.springframework.data.mybatis.samples")
+@EnableMybatisRepositories(
+    value = "org.springframework.data.mybatis.samples",
+    mapperLocations = "classpath*:/mappers/*Mapper.xml"
+)
 public class Application {
 
     public static void main(String[] args) {

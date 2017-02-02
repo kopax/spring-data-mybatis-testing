@@ -9,3 +9,6 @@ buildNumber.properties
 .mvn/timing.properties
 *.iml
 .DS_Store
+.idea
+build
+.gradle
